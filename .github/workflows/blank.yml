@@ -1,0 +1,45 @@
+
+
+name: CI
+
+# Controla quando o workflow será executado
+on:
+  push:
+    branches: [ "master" ]  # Mude para "master" se sua branch principal for master
+  pull_request:
+    branches: [ "master" ]
+
+  # Permite que você execute esse workflow manualmente
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Faz checkout do seu repositório
+      - uses: actions/checkout@v4
+
+      # Configura o Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Especifique a versão do Node.js que você está usando
+
+      # Instala as dependências
+      - name: Install dependencies
+        run: npm install
+
+      # Executa testes
+      - name: Run tests
+        run: npm test
+
+      # Executa um comando simples
+      - name: Run a one-line script
+        run: echo "Hello, world!"
+
+      # Executa um conjunto de comandos
+      - name: Run a multi-line script
+        run: |
+          echo "Add other actions to build,"
+          echo "test, and deploy your project."
