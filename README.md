@@ -1,10 +1,12 @@
 # Rede Social - Backend
 
-## 🚀 Descrição
+![media](https://github.com/user-attachments/assets/343e5fb5-55b7-4cc0-9a6c-ec98b20153ab)
+
+##  Descrição
 
 Este projeto é um backend para uma rede social simples, onde os usuários podem se registrar, autenticar, criar postagens e visualizar suas informações. Construído com Node.js e MongoDB, o sistema utiliza JSON Web Token (JWT) para autenticação e Bcrypt para o hash das senhas.
 
-## 🔧 Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 - **Node.js**
 - **Express.js**
@@ -12,7 +14,7 @@ Este projeto é um backend para uma rede social simples, onde os usuários podem
 - **JSON Web Token (JWT)**
 - **Bcrypt** para segurança de senhas
 
-## 📦 Pré-requisitos
+##  Pré-requisitos
 
 Antes de começar, você precisará ter o seguinte instalado em sua máquina:
 
@@ -20,7 +22,7 @@ Antes de começar, você precisará ter o seguinte instalado em sua máquina:
 - [MongoDB Atlas](https://www.mongodb.com/atlas/database) ou uma instalação local do MongoDB
 - [npm](https://www.npmjs.com/) (gerenciador de pacotes do Node)
 
-## 📥 Instalação
+##  Instalação
 
 1. **Clone o repositório:**
 
@@ -64,7 +66,7 @@ social_media/
 └── .env
 ```
 
-## 📜 Rotas da API
+##  Rotas da API
 
 ### Usuário
 
@@ -77,18 +79,18 @@ social_media/
 - **POST /api/posts**: Cria uma nova postagem.
 - **DELETE /api/posts/:id**: Exclui uma postagem por ID.
 
-## 🔒 Autenticação
+##  Autenticação
 
 Utilizamos JWT para autenticação. O token gerado durante o processo de login deve ser incluído nos cabeçalhos das requisições que requerem autenticação.
 
-## 🛠 Testes
+##  Testes
 
 Utilize ferramentas como [Postman](https://www.postman.com/) ou [Insomnia](https://insomnia.rest/) para testar as rotas da API. Não se esqueça de incluir o token JWT nas requisições que necessitam de autenticação.
 
-## 🤝 Contribuição
+## Contribuição
 
 Sinta-se à vontade para contribuir! Abra um pull request ou crie uma issue para sugestões e melhorias.
 
 ## 📄 Licença
 
-* [ ] Este projeto é de domínio público. Sinta-se à vontade para usar e modificar conforme necessário.
+*  Este projeto é de domínio público. Sinta-se à vontade para usar e modificar conforme necessário.
