@@ -1,96 +1,175 @@
-# Rede Social - Backend
+# 🧠 Rede Social - Backend
 
 ![media](https://github.com/user-attachments/assets/343e5fb5-55b7-4cc0-9a6c-ec98b20153ab)
 
-##  Descrição
+## 📌 Descrição do Projeto
 
-Este projeto é um backend para uma rede social simples, onde os usuários podem se registrar, autenticar, criar postagens e visualizar suas informações. Construído com Node.js e MongoDB, o sistema utiliza JSON Web Token (JWT) para autenticação e Bcrypt para o hash das senhas.
+Este é o backend de uma rede social simples, desenvolvido com foco em aprendizado de autenticação, persistência de dados e segurança com tokens.
 
-##  Tecnologias Utilizadas
+A API permite que usuários se registrem, façam login com JWT, publiquem postagens e gerenciem suas informações. Utiliza **Node.js + Express**, **MongoDB com Mongoose** e bibliotecas essenciais como **JWT** e **Bcrypt** para segurança de senhas.
 
-- **Node.js**
-- **Express.js**
-- **MongoDB** (com Mongoose)
-- **JSON Web Token (JWT)**
-- **Bcrypt** para segurança de senhas
+📦 Ideal como base para construir um front-end futuramente ou integrar com um app mobile.
 
-##  Pré-requisitos
+---
 
-Antes de começar, você precisará ter o seguinte instalado em sua máquina:
+## 🚀 Por que este projeto?
 
-- [Node.js](https://nodejs.org/) (versão 14 ou superior)
-- [MongoDB Atlas](https://www.mongodb.com/atlas/database) ou uma instalação local do MongoDB
-- [npm](https://www.npmjs.com/) (gerenciador de pacotes do Node)
+A proposta foi **simular a estrutura de uma rede social funcional**, com ênfase em:
 
-##  Instalação
+- **Boas práticas de segurança e autenticação**
+- Estrutura REST simples e clara
+- Modularização do backend com controllers, rotas e middleware
 
-1. **Clone o repositório:**
+💬 Este projeto foi pensado para ser simples, funcional e escalável.
 
-   ```bash
-   git clone <URL do repositório>
-   cd social_media
-   ```
-2. **Instale as dependências:**
+---
 
-   ```bash
-   npm install
-   ```
-3. **Configuração do arquivo `.env`:**
-   Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
+## 🛠 Tecnologias Utilizadas
 
-   ```
-   MONGODB_URI=<sua_string_de_conexão>
-   JWT_SECRET=<sua_chave_secreta>
-   PORT=3000
-   ```
-4. **Inicie o servidor:**
+- **Node.js** – runtime JavaScript no servidor
+- **Express.js** – framework leve para rotas e middleware
+- **MongoDB** – banco NoSQL flexível
+- **Mongoose** – ODM para mapear objetos JS no MongoDB
+- **Bcrypt** – hash seguro de senhas
+- **JWT (JSON Web Token)** – autenticação via token
 
-   ```bash
-   npm start
-   ```
+---
 
-## 🗂 Estrutura do Projeto
+## 📋 Pré-requisitos
+
+Certifique-se de ter instalado em sua máquina:
+
+- [Node.js (v14+)](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) ou MongoDB local
+
+---
+
+## 📦 Instalação
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/seu-usuario/social-media-backend.git
+cd social_media
+````
+
+2. Instale as dependências:
+
+```bash
+npm install
+```
+
+3. Crie um arquivo `.env` com:
+
+```
+MONGODB_URI=mongodb+srv://usuario:senha@cluster.mongodb.net/nome-do-banco
+JWT_SECRET=sua_chave_secreta
+PORT=3000
+```
+
+4. Inicie o servidor:
+
+```bash
+npm start
+```
+
+---
+
+## 📂 Estrutura do Projeto
 
 ```
 social_media/
-├── db.js
-├── models/
+├── db.js                    # Conexão com MongoDB
+├── models/                 # Modelos Mongoose (User, Post)
 │   ├── posts.js
 │   └── users.js
-├── routes/
+├── routes/                 # Rotas para usuários e postagens
 │   ├── posts.js
 │   └── users.js
-├── middleware/
+├── middleware/             # Middleware de autenticação (JWT)
 │   └── auth.js
-├── server.js
-└── .env
+├── server.js               # Arquivo principal da aplicação
+└── .env                    # Variáveis de ambiente
 ```
 
-##  Rotas da API
+---
 
-### Usuário
+## 🌐 Rotas da API
 
-- **POST /api/register**: Cria um novo usuário.
-- **POST /api/authenticate**: Autentica um usuário e retorna um token JWT.
-- **GET /api/user**: Retorna as informações do usuário autenticado.
+### 👤 Usuário
 
-### Postagem
+| Método | Rota                | Descrição                       |
+| ------ | ------------------- | ------------------------------- |
+| POST   | `/api/register`     | Registra um novo usuário        |
+| POST   | `/api/authenticate` | Faz login e retorna um JWT      |
+| GET    | `/api/user`         | Retorna dados do usuário logado |
 
-- **POST /api/posts**: Cria uma nova postagem.
-- **DELETE /api/posts/:id**: Exclui uma postagem por ID.
+### 📝 Postagem
 
-##  Autenticação
+| Método | Rota             | Descrição                   |
+| ------ | ---------------- | --------------------------- |
+| POST   | `/api/posts`     | Cria uma nova postagem      |
+| DELETE | `/api/posts/:id` | Deleta uma postagem pelo ID |
 
-Utilizamos JWT para autenticação. O token gerado durante o processo de login deve ser incluído nos cabeçalhos das requisições que requerem autenticação.
+---
 
-##  Testes
+## 🔐 Autenticação com JWT
 
-Utilize ferramentas como [Postman](https://www.postman.com/) ou [Insomnia](https://insomnia.rest/) para testar as rotas da API. Não se esqueça de incluir o token JWT nas requisições que necessitam de autenticação.
+Após fazer login via `/api/authenticate`, o servidor retorna um **token JWT**.
+Esse token deve ser incluído no header das requisições protegidas:
 
-## Contribuição
+```
+Authorization: Bearer <seu_token>
+```
 
-Sinta-se à vontade para contribuir! Abra um pull request ou crie uma issue para sugestões e melhorias.
+---
 
-## 📄 Licença
+## 🧪 Testando com Postman ou Insomnia
 
-*  Este projeto é de domínio público. Sinta-se à vontade para usar e modificar conforme necessário.
+1. Faça o login e copie o token retornado
+2. Nas requisições protegidas, adicione o token no header
+3. Teste rotas como:
+
+   * POST `/api/posts`
+   * GET `/api/user`
+   * DELETE `/api/posts/:id`
+
+---
+
+## 🤝 Contribuindo
+
+Sinta-se à vontade para contribuir!
+
+```bash
+# Fork o repositório
+# Crie uma branch
+git checkout -b minha-feature
+
+# Faça commit
+git commit -m 'feat: adicionando endpoint de comentários'
+
+# Push e pull request
+```
+
+---
+
+## 📜 Licença
+
+Este projeto está sob domínio público.
+Use, estude e modifique como quiser!
+
+---
+
+## ✉️ Contato
+
+Desenvolvido por **Thomas Eduardo**
+🔗 [thomaseduardo.online](https://thomaseduardo.online)
+📧 [thmedu@outlook.com](mailto:thmedu@outlook.com)
+📱 (19) 9 9904-2072
+
+---
+
+🔧 Projeto prático com Node.js e MongoDB para fins de estudo e portfólio.
+
+```
+
